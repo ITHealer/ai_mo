@@ -712,23 +712,89 @@ CLASSIFICATION RULES
 
 1. **dangerous** (Drugs & Substance Abuse):
    
-   ✅ CLEAR VIOLATIONS (conf: 0.85-0.95):
-   - Active drug use: injection, smoking, snorting recreational drugs
-   - Drug paraphernalia in recreational context: pipes, bongs, syringes (non-medical)
-   - Drug glorification: pills/powder displayed casually, drug packaging
-   - Drug manufacturing setups (meth labs, grow operations for recreational use)
-   - Drug dealing scenes: baggies, scales, large quantities
+   🚫 **ABSOLUTE RULES - NO GUESSING ALLOWED**:
+   - NEVER flag "smoking device" without identifying the ACTUAL SUBSTANCE
+   - "unclear substance" = NOT A VIOLATION → SAFE
+   - "smoking device visible" alone = NOT ENOUGH → SAFE
+   - Cigarettes/tobacco = LEGAL → SAFE
+   - DO NOT use reasoning like "unclear substance", "suspicious", "could be", "might be"
+   - If you CANNOT identify the specific illegal drug → DEFAULT TO SAFE
+   - **Policy: Tobacco smoking is NOT a violation**
    
-   ❌ NOT VIOLATIONS → safe:
-   - Medical context: healthcare professional, clinic/hospital setting, medical equipment visible
-   - Vaccination/insulin: proper medical device, clinical environment
+   ⚠️ **VERIFICATION REQUIRED - MUST SEE ILLEGAL DRUGS**:
+   - Must have CLEAR, VISIBLE evidence of SPECIFIC illegal drug (cocaine, heroin, meth, crack)
+   - Must IDENTIFY the actual illegal substance, not guess
+   - Smoking alone ≠ drug use (could be tobacco, legal vaping)
+   - Dark/moody photos, sad people, dim lighting ≠ drug use
+   - Silhouettes, contemplative poses ≠ drug use
+   - DO NOT flag based on atmosphere, assumptions, or "unclear" observations
+   - ONLY flag when SPECIFIC ILLEGAL substances/paraphernalia are CLEARLY VISIBLE AND IDENTIFIABLE
+   
+   ✅ CLEAR VIOLATIONS (conf: 0.85-0.95) - Must identify specific illegal drug:
+   - Active ILLEGAL drug use with substance identified: injection of heroin/cocaine/meth (visible), smoking crack cocaine (crack pipe + rock visible), snorting cocaine (white powder lines visible)
+   - ILLEGAL drug paraphernalia with substance confirmed: crack pipes with residue, syringes with non-medical drugs visible, meth pipes with crystals
+   - Drug glorification with illegal drugs shown: cocaine/heroin pills/powder CLEARLY DISPLAYED, illegal drug packaging visible with contents
+   - Drug manufacturing setups: meth lab equipment with chemicals, marijuana grow operation (in prohibited jurisdiction) with plants visible
+   - Drug dealing scenes with illegal drugs: baggies with white powder/pills confirmed as illegal drugs, scales with cocaine/meth visible
+   
+   ⚠️ CRITICAL DISTINCTION - Tobacco/Legal vs Illegal Drugs:
+   - **SAFE - ALWAYS**: 
+     * Regular cigarettes (with or without filter)
+     * Cigars, cigarillos
+     * Tobacco pipes
+     * Vaping devices / e-cigarettes
+     * Hookah / shisha
+     * ANY smoking where substance is not identified as illegal drug
+   - **VIOLATION - ONLY IF**: 
+     * Substance is CLEARLY AND SPECIFICALLY identified as illegal drug (cocaine, heroin, crack, methamphetamine)
+     * Must see the actual illegal substance OR unique illegal drug paraphernalia (crack pipe, meth pipe - not regular pipes)
+   - **Visual cues for SAFE tobacco**: 
+     * Standard cigarette shape with filter
+     * Tobacco packaging visible
+     * Normal smoking behavior
+     * Pipe tobacco
+     * Vape mod/pod devices
+   - **Red flags for illegal drugs (MUST BE CLEARLY VISIBLE AND IDENTIFIED)**:
+     * White powder lines on surface (cocaine snorting)
+     * Glass pipe with white/crystal residue (meth pipe)
+     * Burnt spoon with brown residue + needle (heroin injection)
+     * Small glass tube with copper mesh (crack pipe) + rock visible
+     * Tin foil with burn marks + white/brown powder visible (heroin/fentanyl smoking)
+   
+   ❌ NOT VIOLATIONS → ALWAYS SAFE:
+   - "smoking device" without drug identification → SAFE
+   - "unclear substance" → SAFE
+   - "person smoking" → SAFE (assume tobacco unless proven otherwise)
+   - Dark/moody photography without visible identified drugs
+   - Sad, contemplative, or depressed person without any drug evidence
+   - Silhouettes or dim lighting photos
+   - **ALL tobacco products**: cigarettes, cigars, tobacco pipes, vaping devices, hookah
+   - Medical context: healthcare setting, clinical equipment
+   - Vaccination/insulin: proper medical device
    - Pharmacy: legitimate medications in proper packaging
-   - Educational/documentary: textbooks, awareness campaigns, rehab programs
-   - Law enforcement: police evidence photos, drug seizures with officers present
+   - Educational/documentary: textbooks, awareness campaigns
+   - Law enforcement: police evidence photos with officers present
    
-   🔍 KEY INDICATORS:
-   - VIOLATION: Casual setting, recreational intent, improvised tools, glorification
-   - SAFE: Medical attire, clinical lighting, sterile equipment, professional context
+   🔍 KEY INDICATORS FOR VIOLATIONS (All must be present):
+   - ✅ SPECIFIC illegal drug identified (not "unclear")
+   - ✅ Substance CLEARLY VISIBLE in frame
+   - ✅ NOT in medical/law enforcement/educational context
+   - ✅ Recreational/casual setting confirmed
+   
+   🔍 DEFAULT TO SAFE WHEN:
+   - ❌ Cannot identify specific substance
+   - ❌ "unclear", "suspicious", "could be", "might be"
+   - ❌ Just "smoking" or "smoking device" without drug ID
+   - ❌ Any ambiguity about the substance
+   
+   **CRITICAL REMINDERS**: 
+   - Tobacco smoking ≠ Drug abuse (NEVER flag tobacco)
+   - Dark mood ≠ Drug use
+   - Sad person ≠ Drug user
+   - Smoking device ≠ Drug paraphernalia (unless specifically illegal device like crack/meth pipe)
+   - **"unclear substance" = SAFE BY DEFAULT**
+   - **When in doubt → SAFE (tobacco is legal)**
+   - **NEVER use "unclear substance" as reasoning for dangerous flag**
 
 2. **criminal** (Crime, Trafficking, Fraud, Illegal Activities):
    
